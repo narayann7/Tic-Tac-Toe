@@ -3,146 +3,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
 
     tools:context=".GameScreen">
 
 
     <TextView
         android:id="@+id/resultText"
-        android:text="player 1 wins"
-        android:textSize="30dp"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="player 1 wins"
+        android:textSize="30dp">
 
     </TextView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
 
-android:layout_margin="10dp"
-            />
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
+
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
 
-
-
-
-
+            android:layout_weight="1" />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
+
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
+
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
 
-
-
-
-
+            android:layout_weight="1" />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
+
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
+
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_weight="1"
-
             android:layout_margin="10dp"
-            />
 
-
-
-
-
+            android:layout_weight="1" />
 
 
     </LinearLayout>
 
 
-
-
     <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset">
 
-    android:text="reset"
-    >
-
-</Button>
+    </Button>
 
 
 </LinearLayout>
