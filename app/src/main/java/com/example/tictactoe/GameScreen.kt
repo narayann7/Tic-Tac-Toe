@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.example.tictactoe.databinding.ActivityGameScreenBinding
@@ -39,6 +40,9 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
             "player2"
         ).toString()
 
+      binding.player1.text=player1
+      binding.player2.text=player2
+
         @SuppressLint("SetTextI18n")
         fun reset() {
             binding.resultText.text = "$player1's turn "
@@ -56,7 +60,7 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
         }
 
         binding.history.setOnClickListener {
-            val intent: Intent = Intent(this , History::class.java)
+            val intent: Intent = Intent(this , MatchHistorys::class.java)
 
             startActivity(intent)
         }
@@ -152,29 +156,52 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
         }
         currentPlayer = !currentPlayer
         totalTurn--
-        if (totalTurn != 0) {
-            val result = checkWinner()
+        val result = checkWinner()
+        var matchResult:matchResult= matchResult(
+            player1=binding.player1.text.toString(),
+            player2=binding.player2.text.toString(),
+        )
+        if (totalTurn != 0 || result.first) {
+
             if (result.first) {
+
+
                 if (result.second == "X") {
                     binding.resultText.text = "$player1 won "
                     p1count++
+                    matchResult.status=1
                     binding.score1.text = p1count.toString()
                 } else {
                     binding.resultText.text = "$player2 won"
                     p2count++
+                    matchResult.status=2
                     binding.score2.text = p2count.toString()
                 }
 
-
-
                 disableAllButton()
+                matchResult.matrix= valueArrayToList(valueArray)
                 totalTurn = 9
             } else {
                 binding.resultText.text =
                     if (currentPlayer) "$player1's turn " else "$player2's turn"
             }
+            Log.i("x1",matchResult.player1)
+            Log.i("x2",matchResult.player2)
+            Log.i("x3",matchResult.status.toString())
+            Log.i("x4",matchResult.matrix.toString())
+
         } else {
-            binding.resultText.text = "Its a draw"
+            if (!result.first)
+            {
+                binding.resultText.text = "Its a draw"
+                matchResult.status=-1
+                matchResult.matrix= valueArrayToList(valueArray)
+                Log.i("x1",matchResult.player1)
+                Log.i("x2",matchResult.player2)
+                Log.i("x3",matchResult.status.toString())
+                Log.i("x4",matchResult.matrix.toString())
+
+            }
             totalTurn = 9
         }
     }

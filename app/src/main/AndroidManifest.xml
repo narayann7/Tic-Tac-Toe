@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToe">
         <activity
+            android:name=".MatchHistorys"
+            android:exported="false" />
+        <activity
             android:name=".History"
             android:exported="false" />
         <activity
