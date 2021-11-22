@@ -13,6 +13,7 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityGameScreenBinding
     private lateinit var buttonArray: Array<Array<Button>>
     private lateinit var valueArray: Array<Array<Int>>
+    private lateinit var matchResult: matchResult
     private var currentPlayer: Boolean = true //true == X false == 0
     private lateinit var player1: String
     private lateinit var player2: String
@@ -40,9 +41,12 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
             "player2"
         ).toString()
 
-      binding.player1.text=player1
-      binding.player2.text=player2
-
+        binding.player1.text = player1
+        binding.player2.text = player2
+        matchResult = matchResult(
+            player1 = binding.player1.text.toString() ,
+            player2 = binding.player2.text.toString() ,
+        )
         @SuppressLint("SetTextI18n")
         fun reset() {
             binding.resultText.text = "$player1's turn "
@@ -59,11 +63,7 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
                 }
         }
 
-        binding.history.setOnClickListener {
-            val intent: Intent = Intent(this , MatchHistorys::class.java)
 
-            startActivity(intent)
-        }
         reset()
 
         binding.reset.setOnClickListener {
@@ -157,50 +157,41 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
         currentPlayer = !currentPlayer
         totalTurn--
         val result = checkWinner()
-        var matchResult:matchResult= matchResult(
-            player1=binding.player1.text.toString(),
-            player2=binding.player2.text.toString(),
-        )
+
         if (totalTurn != 0 || result.first) {
-
             if (result.first) {
-
-
                 if (result.second == "X") {
                     binding.resultText.text = "$player1 won "
                     p1count++
-                    matchResult.status=1
+                    matchResult.status = 1
                     binding.score1.text = p1count.toString()
                 } else {
                     binding.resultText.text = "$player2 won"
                     p2count++
-                    matchResult.status=2
+                    matchResult.status = 2
                     binding.score2.text = p2count.toString()
                 }
 
                 disableAllButton()
-                matchResult.matrix= valueArrayToList(valueArray)
+                matchResult.matrix = valueArrayToList(valueArray)
                 totalTurn = 9
             } else {
                 binding.resultText.text =
                     if (currentPlayer) "$player1's turn " else "$player2's turn"
             }
-            Log.i("x1",matchResult.player1)
-            Log.i("x2",matchResult.player2)
-            Log.i("x3",matchResult.status.toString())
-            Log.i("x4",matchResult.matrix.toString())
-
+//            Log.i("x1",matchResult.player1)
+//            Log.i("x2",matchResult.player2)
+//            Log.i("x3",matchResult.status.toString())
+//            Log.i("x4",matchResult.matrix.toString())
         } else {
-            if (!result.first)
-            {
+            if (!result.first) {
                 binding.resultText.text = "Its a draw"
-                matchResult.status=-1
-                matchResult.matrix= valueArrayToList(valueArray)
-                Log.i("x1",matchResult.player1)
-                Log.i("x2",matchResult.player2)
-                Log.i("x3",matchResult.status.toString())
-                Log.i("x4",matchResult.matrix.toString())
-
+                matchResult.status = -1
+                matchResult.matrix = valueArrayToList(valueArray)
+//                Log.i("x1",matchResult.player1)
+//                Log.i("x2",matchResult.player2)
+//                Log.i("x3",matchResult.status.toString())
+//                Log.i("x4",matchResult.matrix.toString())
             }
             totalTurn = 9
         }
