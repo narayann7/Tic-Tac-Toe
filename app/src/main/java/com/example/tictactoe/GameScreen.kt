@@ -1,18 +1,20 @@
 package com.example.tictactoe
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.example.tictactoe.databinding.ActivityGameScreenBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class GameScreen : AppCompatActivity() , View.OnClickListener {
     private lateinit var binding: ActivityGameScreenBinding
     private lateinit var buttonArray: Array<Array<Button>>
     private lateinit var valueArray: Array<Array<Int>>
+    private lateinit var matchResultDB: MatchResultDB
     private lateinit var matchResult: matchResult
     private var currentPlayer: Boolean = true //true == X false == 0
     private lateinit var player1: String
@@ -31,6 +33,11 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
             arrayOf(binding.button4 , binding.button5 , binding.button6) ,
             arrayOf(binding.button7 , binding.button8 , binding.button9) ,
         )
+
+        matchResultDB = Room.databaseBuilder(
+            applicationContext , MatchResultDB::class.java ,
+            "matchResultDB"
+        ).build()
         //picking up data from main Activity
         val bundle: Bundle? = intent.extras
         player1 = bundle?.getString(
@@ -66,12 +73,20 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
 
         reset()
 
+        binding.clear.setOnClickListener {
+
+            GlobalScope.launch {
+
+                matchResultDB.matchResultDao().delete()
+            }
+        }
+
         binding.reset.setOnClickListener {
             reset()
         }
     }
 
-    fun checkWinner(): Pair<Boolean , String> {
+    private fun checkWinner(): Pair<Boolean , String> {
         var result: Pair<Boolean , String> = Pair(false , "")
 
         for (i in 0..2) {
@@ -175,26 +190,50 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
                 disableAllButton()
                 matchResult.matrix = valueArrayToList(valueArray)
                 totalTurn = 9
+                GlobalScope.launch {
+
+                    matchResultDB.matchResultDao().insertResult(
+                        MatchResultEntity(
+                            0 ,
+                            matchResult.player1 ,
+                            matchResult.player2 ,
+                            matchResult.matrix ,
+                            matchResult.status
+                        )
+                    )
+
+                }
             } else {
                 binding.resultText.text =
                     if (currentPlayer) "$player1's turn " else "$player2's turn"
             }
-//            Log.i("x1",matchResult.player1)
-//            Log.i("x2",matchResult.player2)
-//            Log.i("x3",matchResult.status.toString())
-//            Log.i("x4",matchResult.matrix.toString())
+
+
+
         } else {
             if (!result.first) {
                 binding.resultText.text = "Its a draw"
                 matchResult.status = -1
                 matchResult.matrix = valueArrayToList(valueArray)
-//                Log.i("x1",matchResult.player1)
-//                Log.i("x2",matchResult.player2)
-//                Log.i("x3",matchResult.status.toString())
-//                Log.i("x4",matchResult.matrix.toString())
+
+            }
+            GlobalScope.launch {
+
+                matchResultDB.matchResultDao().insertResult(
+                    MatchResultEntity(
+                        0 ,
+                        matchResult.player1 ,
+                        matchResult.player2 ,
+                        matchResult.matrix ,
+                        matchResult.status
+                    )
+                )
+
             }
             totalTurn = 9
         }
+
+
     }
 
     private fun updateIt(i: Int , j: Int , currentPlayer: Boolean) {

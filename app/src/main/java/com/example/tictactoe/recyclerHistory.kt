@@ -34,7 +34,7 @@ class recyclerHistory(
 
         holder.player1.text = currentItem.player1.toString()
         holder.player2.text = currentItem.player2.toString()
-        holder.status.text = currentItem.status.toString()
+        holder.status.text =if(currentItem.status.toString() == "-1") "its a draw" else if(currentItem.status.toString()== "1") "${currentItem.player1.toString()} won" else "${currentItem.player2.toString()} won"
 
 
         holder.button.setOnClickListener {
