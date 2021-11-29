@@ -7,6 +7,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.tictactoe.databinding.ActivityGameScreenBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -217,6 +219,7 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
                 matchResult.matrix = valueArrayToList(valueArray)
 
             }
+
             GlobalScope.launch {
 
                 matchResultDB.matchResultDao().insertResult(

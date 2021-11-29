@@ -29,22 +29,6 @@ data class MatchResultEntity(
     var status: Int ,
     )
 
-//class matrixxx{
-//
-//    @TypeConverter
-//    fun fromInt(value:String?):MutableList<String?>{
-//        val type=object :TypeToken<MutableList<String?>>(){}.type
-//        return Gson().fromJson(value,type)
-//
-//    }
-//
-//    @TypeConverter
-//    fun fromList(list:MutableList<String?>):String{
-//        return Gson().toJson(list)
-//    }
-//
-//}
-
 
 fun valueArrayToList(
     valueArray: Array<Array<Int>>

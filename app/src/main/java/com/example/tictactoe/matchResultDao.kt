@@ -17,6 +17,6 @@ interface matchResultDao {
 
     @Query("Select *from matchResultEntityname")
      fun getAllMatchResult():List<MatchResultEntity>
-    @Query("DELETE FROM matchResultEntityname")
+    @Query("DELETE FROM matchResultEntityname  ")
     fun delete()
 }

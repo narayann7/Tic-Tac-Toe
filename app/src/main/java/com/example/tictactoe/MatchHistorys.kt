@@ -19,7 +19,7 @@ class MatchHistorys : AppCompatActivity() {
         binding = ActivityMatchHistorysBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-historyList= mutableListOf()
+        historyList = mutableListOf()
         matchResultDB = Room.databaseBuilder(
             applicationContext , MatchResultDB::class.java ,
             "matchResultDB"
@@ -47,5 +47,7 @@ historyList= mutableListOf()
                 )
             )
         }
+
+        historyList.reverse()
     }
 }
