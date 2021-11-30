@@ -8,51 +8,86 @@
     android:orientation="vertical"
     tools:context=".GameScreen">
     
-  
     <LinearLayout
-        android:layout_width="365dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
         
         >
         
-        <TextView
-            android:id="@+id/player1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="217dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="player 1 :"
-            android:textSize="25dp"
-            tools:ignore="HardcodedText,SpUsage" />
+            android:layout_marginBottom="40dp"
+            
+            android:orientation="vertical"
+            >
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                
+                >
+                
+                <TextView
+                    android:id="@+id/player1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="player 1 :"
+                    android:textSize="25dp"
+                    tools:ignore="HardcodedText,SpUsage" />
+                
+                <TextView
+                    android:id="@+id/score1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="0"
+                    android:textSize="20dp"
+                    tools:ignore="HardcodedText,SpUsage" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                
+                <TextView
+                    android:id="@+id/player2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="player 2 :"
+                    android:textSize="25dp"
+                    tools:ignore="HardcodedText,SpUsage" />
+                
+                <TextView
+                    android:id="@+id/score2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="0"
+                    android:textSize="20dp"
+                    tools:ignore="HardcodedText,SpUsage" />
+            </LinearLayout>
         
-        <TextView
-            android:id="@+id/score1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="0"
-            android:textSize="20dp"
-            tools:ignore="HardcodedText,SpUsage" />
+        </LinearLayout>
         
-        <TextView
-            android:id="@+id/player2"
+        <Button
+            android:id="@+id/reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="player 2 :"
-            android:textSize="25dp"
-            tools:ignore="HardcodedText,SpUsage" />
+            android:text="reset"
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText">
         
-        <TextView
-            android:id="@+id/score2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="0"
-            android:textSize="20dp"
-            tools:ignore="HardcodedText,SpUsage" />
-    
+        </Button>
     </LinearLayout>
+    
+    <Space
+        android:layout_width="30sp"
+        android:layout_height="30sp">
+    
+    </Space>
     
     <TextView
         android:id="@+id/resultText"
@@ -65,120 +100,126 @@
     
     </TextView>
     
+    <Space
+        android:layout_width="45sp"
+        android:layout_height="45sp">
+    
+    </Space>
+    
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
         
         <Button
             android:id="@+id/button1"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
-            tools:ignore="ButtonStyle" />
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:backgroundTint="@color/violet1"
+            tools:ignore="ButtonStyle"
+            tools:targetApi="p" />
         
         <Button
             android:id="@+id/button2"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
         
         <Button
             android:id="@+id/button3"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
     
     </LinearLayout>
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
         
         <Button
             android:id="@+id/button4"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
         
         <Button
             android:id="@+id/button5"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
         
         <Button
             android:id="@+id/button6"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
     
     </LinearLayout>
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
         
         <Button
             android:id="@+id/button7"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
         
         <Button
             android:id="@+id/button8"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
         
         <Button
             android:id="@+id/button9"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            
-            android:layout_weight="1"
+            android:backgroundTint="@color/violet1"
             tools:ignore="ButtonStyle" />
     
     </LinearLayout>
     
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="reset"
-        tools:ignore="HardcodedText">
-    
-    </Button>
-    <Button
-        android:id="@+id/clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="clear"
-        tools:ignore="HardcodedText">
-    
-    </Button>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

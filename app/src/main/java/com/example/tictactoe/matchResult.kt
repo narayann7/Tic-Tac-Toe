@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Parcelable
 import android.view.View
+import androidx.core.graphics.alpha
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter

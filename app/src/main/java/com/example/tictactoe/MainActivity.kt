@@ -21,13 +21,20 @@ class MainActivity : AppCompatActivity() {
         binding.startButton.setOnClickListener {
             var p1 = binding.player1.text.toString()
             var p2 = binding.player2.text.toString()
-            val intent = Intent(this , GameScreen::class.java)
 
-            intent.putExtra("player1" , p1)
-            intent.putExtra("player2" , p2)
-            startActivity(
-                intent
-            )
+            p1=p1.trim()
+            p2=p2.trim()
+
+            if(p1.isNotEmpty() && p2.isNotEmpty())
+            {
+                val intent = Intent(this , GameScreen::class.java)
+
+                intent.putExtra("player1" , p1)
+                intent.putExtra("player2" , p2)
+                startActivity(
+                    intent
+                )
+            }
         }
     }
 }

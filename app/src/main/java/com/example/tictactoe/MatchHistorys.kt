@@ -10,15 +10,25 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MatchHistorys : AppCompatActivity() {
-    private lateinit var binding: ActivityMatchHistorysBinding
+    private lateinit var binding:   ActivityMatchHistorysBinding
     private lateinit var recyclerHistory: recyclerHistory
     private lateinit var matchResultDB: MatchResultDB
-    lateinit var historyList: MutableList<matchResult>
+    private lateinit var historyList: MutableList<matchResult>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMatchHistorysBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.clear.setOnClickListener {
+
+            GlobalScope.launch {
+//
+                matchResultDB.matchResultDao().delete()
+            }
+            historyList.clear()
+            recyclerHistory = recyclerHistory(historyList , this)
+            binding.rvHistory.adapter = recyclerHistory
+        }
         historyList = mutableListOf()
         matchResultDB = Room.databaseBuilder(
             applicationContext , MatchResultDB::class.java ,

@@ -75,13 +75,6 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
 
         reset()
 
-        binding.clear.setOnClickListener {
-
-            GlobalScope.launch {
-
-                matchResultDB.matchResultDao().delete()
-            }
-        }
 
         binding.reset.setOnClickListener {
             reset()
@@ -178,12 +171,12 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
         if (totalTurn != 0 || result.first) {
             if (result.first) {
                 if (result.second == "X") {
-                    binding.resultText.text = "$player1 won "
+                    binding.resultText.text = "$player1 won  \uD83C\uDF89 "
                     p1count++
                     matchResult.status = 1
                     binding.score1.text = p1count.toString()
                 } else {
-                    binding.resultText.text = "$player2 won"
+                    binding.resultText.text = "$player2 won  \uD83C\uDF89"
                     p2count++
                     matchResult.status = 2
                     binding.score2.text = p2count.toString()
@@ -214,7 +207,7 @@ class GameScreen : AppCompatActivity() , View.OnClickListener {
 
         } else {
             if (!result.first) {
-                binding.resultText.text = "Its a draw"
+                binding.resultText.text = "Its a draw \uD83D\uDE41 \uD83D\uDD04☝️"
                 matchResult.status = -1
                 matchResult.matrix = valueArrayToList(valueArray)
 

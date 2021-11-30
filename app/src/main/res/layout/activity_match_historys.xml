@@ -7,14 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".MatchHistorys">
     
+    <Button
+        android:id="@+id/clear"
+        android:text="clear"
+        android:backgroundTint="@color/violet1"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        
+    </Button>
+    
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvHistory"
+        app:layout_constraintTop_toBottomOf="@+id/clear"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:listitem="@layout/match_result_item"
-        tools:ignore="MissingConstraints">
+        tools:listitem="@layout/match_result_item">
     
     </androidx.recyclerview.widget.RecyclerView>
 

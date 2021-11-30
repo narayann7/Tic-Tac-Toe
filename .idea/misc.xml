@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/bgts.xml" value="0.16578947368421051" />
+        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/bgxml.xml" value="0.16578947368421051" />
         <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/custom_edit_text.xml" value="0.2625" />
         <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/rounded_button.xml" value="0.16578947368421051" />
-        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_game_screen.xml" value="0.264" />
+        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_game_screen.xml" value="0.176" />
         <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_history.xml" value="0.259375" />
-        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_match_historys.xml" value="0.259375" />
-        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/match_result_item.xml" value="0.259375" />
+        <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/match_result_item.xml" value="0.264" />
         <entry key="..\:/Users/narayann7/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/matrix.xml" value="0.259375" />
       </map>
     </option>
@@ -19,5 +21,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
